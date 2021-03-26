@@ -21,9 +21,11 @@
   },
   "homepage": "https://github.com/edward-pis-1670/nodejs_blog#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1"
   },
   "devDependencies": {
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.7"
   }
 }
