@@ -5,10 +5,13 @@ const port = 3000;
 const app = express();
 const morgan = require('morgan');
 const handlebars = require('express-handlebars');
-
+const route = require('./routes')
 
 app.use(express.static(path.join(__dirname, 'public')));
-console.log(__dirname)
+
+
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
 // HTTP logger
 
 // Template engine
@@ -20,14 +23,10 @@ app.set('views', path.join(__dirname,'/resources/views'))
 
 // console.log('PATH', path.join(__dirname,'/resources/views'))
 
+//Home, search, contact
 
-app.get('/', (req, res) => {
-  res.render('home')
-})
-
-app.get('/news', (req, res) => {
-  res.render('news')
-})
+// routes init
+route(app)
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
