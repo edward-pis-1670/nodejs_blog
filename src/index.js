@@ -13,12 +13,12 @@ app.use(express.json());
 // HTTP logger
 
 // Template engine
-app.engine(
-    '.hbs',
-    handlebars({
-        extname: '.hbs',
-    }),
-);
+    app.engine(
+        '.hbs',
+        handlebars({
+            extname: '.hbs',
+        }),
+    );
 app.set('view engine', '.hbs');
 app.set('views', path.join(__dirname, '/resources/views'));
 
@@ -29,8 +29,8 @@ app.set('views', path.join(__dirname, '/resources/views'));
 // routes init
 route(app);
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
-});
+    app.listen(port, () => {
+        console.log(`Example app listening at http://localhost:${port}`);
+    });
 
-app.use(morgan('combined'));
+          app.use(morgan('combined'));
