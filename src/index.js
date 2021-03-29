@@ -5,7 +5,10 @@ const app = express();
 const morgan = require('morgan');
 const handlebars = require('express-handlebars');
 const route = require('./routes');
+const db = require('./config/db')
 
+// connect to db
+db.connect();
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.urlencoded({ extended: true }));
@@ -20,7 +23,7 @@ app.engine(
     }),
 );
 app.set('view engine', '.hbs');
-app.set('views', path.join(__dirname, '/resources/views'));
+app.set('views', path.join(__dirname, 'resources', 'views'));
 
 // console.log('PATH', path.join(__dirname,'/resources/views'))
 
@@ -30,7 +33,7 @@ app.set('views', path.join(__dirname, '/resources/views'));
 route(app);
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+    console.log(`App listening at http://localhost:${port}`);
 });
 
 app.use(morgan('combined'));
