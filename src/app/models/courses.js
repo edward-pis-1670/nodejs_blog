@@ -6,7 +6,8 @@ const Course = new Schema({
     desc:{ type: String },
     image:{ type: String, maxLength: 5000 },
     videoId:{ type: String, require:true },
-    level:{ type: String, maxLength: 5000 }
+    level:{ type: String, maxLength: 5000 },
+    slug: {type: String, slug: 'name', unique: true}
 }, {
     timestamps:true
 });
