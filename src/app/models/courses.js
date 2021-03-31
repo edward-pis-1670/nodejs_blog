@@ -5,6 +5,7 @@ mongoose.plugin(slug);
 const Schema = mongoose.Schema;
 
 const Course = new Schema({
+    _id: { type: Number},
     name:{ type: String, maxLength: 255, require:true },
     desc:{ type: String },
     image:{ type: String, maxLength: 5000 },
@@ -12,6 +13,7 @@ const Course = new Schema({
     level:{ type: String, maxLength: 5000 },
     slug: {type: String, slug: 'name', unique: true}
 }, {
+    _id: false,
     timestamps:true
 });
 // add plugin
